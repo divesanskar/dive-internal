@@ -1,0 +1,22 @@
+{
+  "isPublic": false,
+  "viewMode": false,
+  "appIsExample": false,
+  "unreadCommentThreads": 0,
+  "color": "#FFDEDE",
+  "icon": "restaurant",
+  "slug": "dive",
+  "unpublishedAppLayout": {
+    "type": "FLUID"
+  },
+  "publishedAppLayout": {
+    "type": "FLUID"
+  },
+  "publishedModeThemeId": "61d6d26687725863b5edef09",
+  "editModeThemeId": "61d6d26687725863b5edef09",
+  "createdAt": {
+    "seconds": 1620722806,
+    "nanos": 136000000
+  },
+  "deleted": false
+}

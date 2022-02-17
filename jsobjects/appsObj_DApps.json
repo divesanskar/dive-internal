@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "appsObj",
+    "pageId": "DApps",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tonItemClick: () => {\n\t\tlist_dapp.run(); \n\t\tshowModal('dapp_modal'); \n\t},\n\tcloseDappModal: () => {\n\t\tcloseModal('dapp_modal'); \n\t}, \n\tonUpdateSuccess: async () => {\n\t\tshowAlert('Updated!','success');\n\t\tawait globalObj.initApp();\n\t}\n}",
+    "variables": []
+  },
+  "id": "DApps_appsObj",
+  "deleted": false,
+  "gitSyncId": "609a44765864501cc39c4071_61fa598b2cd3d95ca4149bd2"
+}

@@ -1,0 +1,20 @@
+{
+  "unpublishedCollection": {
+    "name": "globalObj",
+    "pageId": "DApps",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tFILTERED_APPS: 'filteredApps',\n\tfilterStatus: (app) => {\n\t\tlet selectedOption = filter_status.selectedOptionValue; \n\t\tif(selectedOption == 'both') return true; \n\t\treturn app.is_active.toString() == selectedOption; \n\t},\n\tfilterSlug: (app) => {\n\t\tlet val = search_dapp.text.trim();\n\t\tlet re = new RegExp(val, 'i'); \n\t\tif(val.length == 0) return true; \n\t\treturn app.name.search(re) != -1 || app.slug.search(re) != -1; \n\t}, \n\tfilterApps: (fns, apps = appsmith.store.dapps) => {\n\t\t storeValue(globalObj.FILTERED_APPS, apps.filter((app) => [].reduce.call(fns, (prevVal, fn) => prevVal && fn(app), true))); \n\t},\n\tonChange: () => {\n\t\tglobalObj.filterApps([globalObj.filterStatus, globalObj.filterSlug]);\n\t},\n\tgetFilteredDapps: () => {\n\t\treturn appsmith.store.filteredApps; \n\t},\n\tgetFilteredUrlParams: () => {\n\t\tlet isActive = filter_status.selectedOptionValue == 'both' ? '' : `is_active=${filter_status.selectedOptionValue}`; \n\t\tlet url = `?slug=${search_dapp.text}&page=${dapps.pageNo}&${isActive}`; \n\t\treturn url; \n\t}, \n\tinitApp: async () => {\n\t\tlet apps = []\n\t\tlet page = 1; \n\t\tdo{\n\t\t\tawait list_all_dapps.run({page}); \n//\t\t\tstoreValue('dapps', [...appsmith.store.dapps, ...list_all_dapps.data.results]); \n\t\t\tapps = [...apps, ...list_all_dapps.data.results]; \n\t\t\tpage++; \n\t\t}while(list_all_dapps.data.next != null); \n\t\tstoreValue('dapps', apps); \n\t}\n}",
+    "variables": [
+      {
+        "name": "FILTERED_APPS",
+        "value": "filteredApps"
+      }
+    ]
+  },
+  "id": "DApps_globalObj",
+  "deleted": false,
+  "gitSyncId": "609a44765864501cc39c4071_6204ce06552a5f6395877860"
+}
