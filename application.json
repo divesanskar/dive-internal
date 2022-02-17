@@ -7,10 +7,10 @@
   "icon": "restaurant",
   "slug": "dive",
   "unpublishedAppLayout": {
-    "type": "FLUID"
+    "type": "TABLET_LARGE"
   },
   "publishedAppLayout": {
-    "type": "FLUID"
+    "type": "TABLET_LARGE"
   },
   "publishedModeThemeId": "61d6d26687725863b5edef09",
   "editModeThemeId": "61d6d26687725863b5edef09",

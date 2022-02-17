@@ -775,7 +775,7 @@
                                       "onListItemClick": "{{appsObj.onItemClick()}}",
                                       "itemBackgroundColor": "",
                                       "widgetId": "m1q5obusbt",
-                                      "isVisible": "{{appsmith.store.filterdApps.count != 0}}",
+                                      "isVisible": "{{(appsmith.store[globalObj.FILTERED_APPS] || []).count != 0}}",
                                       "parentId": "faqp0plix6",
                                       "serverSidePaginationEnabled": false,
                                       "renderMode": "CANVAS",
@@ -1666,7 +1666,7 @@
                               "placeholderText": "Select option",
                               "isDisabled": false,
                               "key": "qh6ij4eyg6",
-                              "isRequired": false,
+                              "isRequired": true,
                               "rightColumn": 38,
                               "widgetId": "sq8q61jcji",
                               "isVisible": true,
@@ -1718,9 +1718,10 @@
                       "isLoading": false
                     },
                     {
-                      "widgetName": "inti_btn",
+                      "widgetName": "init_btn",
                       "onClick": "{{globalObj.initApp()}}",
                       "buttonColor": "#03B365",
+                      "dynamicPropertyPathList": [],
                       "displayName": "Button",
                       "iconSVG": "/static/media/icon.cca02633.svg",
                       "topRow": 1,
@@ -2748,7 +2749,7 @@
                       "renderMode": "CANVAS",
                       "isLoading": false,
                       "iconAlign": "left",
-                      "defaultText": "{{themesObj?.joinArrays( themesObj.defaultText('items', true).map(item => item.value).join('\\\",\\\"'))}}"
+                      "defaultText": "{{themesObj?.joinArrays( themesObj?.defaultText('items', true).map(item => item.value).join('\\\",\\\"'))}}"
                     }
                   ],
                   "isDisabled": false,
@@ -3148,7 +3149,7 @@
                       "renderMode": "CANVAS",
                       "isLoading": false,
                       "iconAlign": "left",
-                      "defaultText": "{{themesObj?.joinArrays( themesObj.defaultText('categories', true).join('\\\",\\\"'))}}"
+                      "defaultText": "{{themesObj?.joinArrays( themesObj.defaultText('categories', true).map(item => item.value).join('\\\",\\\"'))}}"
                     },
                     {
                       "widgetName": "modal_ut_litems",
@@ -3317,7 +3318,7 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "onClose": "{{themesObj.closeModalTheme('modal_update_theme')}}",
+              "onClose": "{{closeModal('modal_update_theme')}}",
               "width": 670
             },
             {
@@ -3541,7 +3542,7 @@
           "dapps_container",
           "dapps_selector",
           "filter_status",
-          "inti_btn",
+          "init_btn",
           "item_container",
           "modal_create_theme",
           "modal_ct_close",
